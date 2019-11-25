@@ -1,5 +1,7 @@
 # alexapilight
 
+https://www.instructables.com/id/Control-Raspberry-Pi-GPIO-With-Amazon-Echo-and-Pyt/
+
 You need to have an ssl/tls https tunnel - without having a proxy of your own ngrok provides a free service
 
 
