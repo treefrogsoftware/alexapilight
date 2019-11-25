@@ -1,0 +1,103 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "raspberry switch",
+      "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "pilight",
+          "slots": [
+            {
+              "name": "status",
+              "type": "STATUS"
+            },
+            {
+              "name": "device",
+              "type": "device"
+            }
+          ],
+          "samples": [
+            "turn {device} {status}",
+            "turn {status} {device}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "name": "STATUS",
+          "values": [
+            {
+              "name": {
+                "value": "off",
+                "synonyms": [
+                  "Off",
+                  "low"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "on",
+                "synonyms": [
+                  "High",
+                  "On"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "device",
+          "values": [
+            {
+              "name": {
+                "value": "garage",
+                "synonyms": [
+                  "front",
+                  "garage"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "tree",
+                "synonyms": [
+                  "tree",
+                  "lights"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "hall",
+                "synonyms": [
+                  "hall",
+                  "porch"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
