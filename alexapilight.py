@@ -13,8 +13,12 @@ logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
 STATUSON = ['on','high']
 STATUSOFF = ['off','low']
-SCRIPT = ['all']
-COMMAND = "/usr/local/bin/pilight-send -p %s %s %d -u %d %s -S=127.0.0.1 -P=5000"
+BASE_COMMAND = "/usr/local/bin/pilight-send -p %s "
+UNIT_COMMAND = "%s %d -u %d %s "
+NAME_COMMAND = "-n %s "
+PROGRAM_COMMAND = "%s %d -u %d "
+SERVER_COMMAND = "%s -S=127.0.0.1 -P=5000"
+
 PILIGHT_CONFIG = "/etc/pilight/config.json"
 
 SEND_ON="-t"
@@ -43,16 +47,21 @@ def loadDevices():
         if 'id' in unit_node:
             id = unit_node['id']
             unit = unit_node['unit']
+        elif protocol is 'program':
+            id = unit_node['name']
+            unit = 0
+            systemcode = False
         else:
             id = unit_node['systemcode']
             unit = unit_node['unitcode']
             systemcode = True
+
         device_list.append(Device(key, protocol, id, unit, systemcode))
 
 def getDevice(name):
     return next((device for device in device_list if device.name.lower() == name.lower()), None)
 
-loadDevices()
+#loadDevices()
 
 @ask.launch
 def launch():
@@ -81,7 +90,12 @@ def help():
 def switch(device, status):
     system_flag = SYS_CODE if device.systemcode else ID_CODE
     on_flag = SEND_ON if status in STATUSON else SEND_OFF
-    command = COMMAND % (device.protocol, system_flag, device.id, device.unit, on_flag)
+
+    if device.protocol is not 'program':
+        command = COMMAND % (device.protocol) + UNIT_COMMAND % (system_flag, device.id, device.unit) + BASE_COMMAND % (on_flag)
+    else:
+        command = COMMAND % (device.protocol) + NAME_COMMAND % (device.id) + BASE_COMMAND % on_flag
+
     print(command)
     returned_value = subprocess.call(command, shell=True)  # returns the exit code in unix
     print('returned value:', returned_value)
@@ -99,4 +113,6 @@ if __name__ == '__main__':
         if verify == 'false':
             app.config['ASK_VERIFY_REQUESTS'] = False
     loadDevices()
-    app.run(host='0.0.0.0', port=6002, debug=True)
+    app.run(host='0.0.0.0', port=5003, debug=True)
+
+

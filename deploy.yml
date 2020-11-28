@@ -1,0 +1,88 @@
+40  cd /tmp
+41  sudo su
+42  cd /home/pi/bin
+43  outsidelightson.sh
+44  sudo su
+45  ls
+46  sudo su
+47  eit
+48  exit
+49  ls bin
+50  journalctl
+51  crontab -l
+52  ls
+53  ls -l
+54  sudo su
+55  mkdir duckdns
+56  cd duckdns/
+57  ls
+58  vi duck.sh
+59  chmod 700 duck.sh
+60  crontab -e
+61  ./duck.sh
+62  cat duck.log
+63  vi duck.sh
+64  ip a
+65  ls
+66  vi alexapilight.py
+67  python3 alexapilight.py
+68  pip install flask
+69  pip3 install flask
+70  sudo apt-get install pip
+71  sudo apt-get install pip3
+72  sudo apt-get update
+73  sudo apt-get install pip3
+74  sudo apt-get install pip
+75  sudo apt-get install python3-pip
+76  pip3 install flask
+77  python3 alexapilight.py
+78  pip3 install flask_ask
+79  python3 alexapilight.py
+80  echo
+81  echo pip install werkzeug
+82  pip3 install werkzeug
+83  pip3 install Ask
+84  pip3 install request
+85  pip3 install session
+86  pip3 install subprocess
+87  python3 alexapilight.py
+88  pip3 unistall Werkzeug
+89  pip3 install  Werkzeug
+90  python3 alexapilight.py
+91  pip3 uninstall  Werkzeug
+92  pip3 install Werkzeug==0.11.15
+93  python3 alexapilight.py
+94  vi alexapilight.py
+95  fg
+96  jobs
+97  vi alexapilight.py
+98  python3 alexapilight.py
+99  vi alexapilight.py
+100  cat /etc/pilight/config.json
+101  vi alexapilight.py
+102  python3 alexapilight.py
+103  vi alexapilight.py
+104  python3 alexapilight.py
+105  vi alexapilight.py
+106  cat /etc/pilight/config.json
+107  vi alexapilight.py
+108  cat /etc/pilight/config.json
+109  vi alexapilight.py
+110  cat /etc/pilight/config.json
+111  vi alexapilight.py
+112  python3 alexapilight.py
+113  vi alexapilight.py
+114  cat /etc/pilight/config.json
+115  vi alexapilight.py
+116  fg
+117  cat /etc/pilight/config.json
+118  fg
+119  python3 alexapilight.py
+120  vi alexapilight.py
+121  python3 alexapilight.py
+122  vi alexapilight.py
+123  python3 alexapilight.py
+124  history
+(reverse-i-search)`pip': pip3 uninstall  Werkzeug
+(reverse-i-search)`pip3': pip3 install 'cryptography<2.2'
+(reverse-i-search)`pip3': pip3 install Werkzeug==0.11.15

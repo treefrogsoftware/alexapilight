@@ -1,0 +1,14 @@
+[Unit]
+Description=AlexaPlight Service
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/duckdns/
+ExecStart=/usr/bin/python3 /home/pi/duckdns/alexaplight.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
